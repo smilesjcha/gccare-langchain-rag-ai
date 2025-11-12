@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/sjcha/Documents/6. 개인작업 관리(smilechacha)/@모두의연구소/@모두의연구소 - 04 - GC케어&유비케어/202511_gccare/gccare-langchain-rag-ai/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from jupyter_core.troubleshoot import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
