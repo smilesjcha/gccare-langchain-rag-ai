@@ -43,7 +43,8 @@ APP_TITLE = "GCcare NIST RAG API"
 APP_VERSION = "1.2.0"
 
 # 현재 파일 기준 데이터 경로
-HERE = Path(__file__).resolve().parent
+HERE = Path(__file__).resolve().parent.parent
+print("HERE:", HERE)
 DATA_DIR = HERE / "data" / "docs"
 PERSIST_DIR = HERE / "chroma_db"
 PERSIST_DIR.mkdir(parents=True, exist_ok=True)
@@ -70,7 +71,7 @@ def format_docs(docs):
 
 def build_rag_chain():
     # 0) 임베딩 먼저 준비
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = OpenAIEmbeddings()
 
     # 1) 문서 로드
     raw_docs = load_all_pdfs(DATA_DIR)
